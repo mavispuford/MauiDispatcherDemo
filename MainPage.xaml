@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DispatcherDemo.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label Text="These work as expected" 
+                   FontSize="16"/>
+            <Button
+                Text="Navigate within awaited Task using Dispatcher.&#x0a;No exceptions will be thrown&#x0a;Navigation works fine"
+                Clicked="OnAwaitedTaskWithDispatcherButtonClicked"
+                HorizontalOptions="Center" 
+                LineBreakMode="WordWrap"/>
+
+            <Button
+                Text="Navigate in main thread (No Dispatcher)&#x0a;No exceptions will be thrown&#x0a;Navigation works fine"
+                Clicked="OnMainThreadNoDispatcherButtonClicked"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap"/>
+
+            <Label Text="These do not" 
+                   FontSize="16"/>
+
+            <Button
+                Text="Navigate within awaited Task (No Dispatcher)&#x0a;An exception will be thrown&#x0a;Navigation is messed up going forward"
+                Clicked="OnAwaitedTaskNoDispatcherButtonClicked"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap"/>
+
+            <Button
+                Text="Navigate within non-awaited Task (No Dispatcher)&#x0a;No exception is thrown&#x0a;Navigation is messed up going forward"
+                Clicked="OnNonAwaitedTaskNoDispatcherButtonClicked"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
